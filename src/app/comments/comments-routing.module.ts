@@ -6,17 +6,11 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo : '/list',
-    pathMatch: 'full',
-    data: { breadcrumb: undefined, breadcrumblink: true }
-  },
-  {
-    path: 'list',
     component: CommentsListComponent,
     data: { breadcrumb: undefined, breadcrumblink: true }
   },
   {
-    path: 'form',
+    path: '/form',
     component: CommentsFormComponent,
     data: { breadcrumb: undefined, breadcrumblink: true }
   },

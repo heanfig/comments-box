@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxLocalStorageModule } from 'ngx-localstorage/lib/ngx-localstorage.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { NgxLocalStorageModule } from 'ngx-localstorage/lib/ngx-localstorage.mod
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    CoreModule
     // NgxLocalStorageModule.forRoot()
   ],
   providers: [],

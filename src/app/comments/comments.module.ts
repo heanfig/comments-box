@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CommentsFormComponent } from './components/comments-form/comments-form.component';
 import { CommentsListComponent } from './components/comments-list/comments-list.component';
 import { CommentsRoutingModule } from './comments-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { CommentsRoutingModule } from './comments-routing.module';
     CommentsListComponent
   ],
   imports: [ 
+    ReactiveFormsModule,
     CommonModule,
     CommentsRoutingModule
   ],
