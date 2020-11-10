@@ -1,0 +1,21 @@
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Website</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comment of commentsData">
+        <td>{{ comment.name }}</td>
+        <td>{{ comment.email }}</td>
+        <td>{{ comment.website }}</td>
+        <td>
+          <a [routerLink]="['comment', comment.email ]">Editar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>        

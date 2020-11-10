@@ -1,0 +1,25 @@
+<form [formGroup]="commentForm" (ngSubmit)="submitCommentForm()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nombre</label>
+      <input type="text" 
+            formControlName="name"
+            class="form-control" id="exampleInputEmail1" 
+            aria-describedby="emailHelp" 
+            placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">Introduzca su nombre</small>
+    </div>
+    <div class="form-group">
+      <label for="email">Correo Electronico</label>
+      <input type="email" formControlName="email" class="form-control" id="email" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="website">Pagina web</label>
+      <input type="url" formControlName="website" class="form-control" id="website" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Comentario</label>
+      <textarea formControlName="comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary">Regresar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
