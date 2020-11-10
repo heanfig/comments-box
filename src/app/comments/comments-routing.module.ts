@@ -7,12 +7,23 @@ const routes: Routes = [
   {
     path: '',
     component: CommentsListComponent,
-    data: { breadcrumb: undefined, breadcrumblink: true }
+    data: {
+      title : 'Lista de comentarios'
+    }
   },
   {
-    path: '/form',
+    path: 'edit/:comment',
     component: CommentsFormComponent,
-    data: { breadcrumb: undefined, breadcrumblink: true }
+    data: {
+      title : 'Ingresa un nuevo comentario'
+    }
+  },
+  {
+    path: 'add',
+    component: CommentsFormComponent,
+    data: {
+      title : 'Ingresa un nuevo comentario'
+    }
   },
 ];
 
