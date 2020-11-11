@@ -1,9 +1,8 @@
 <p><a class="btn btn-primary btn-lg" [routerLink]="['add']" role="button">Agregar Comentario</a></p>
 <div class="form-group">
   <label for="exampleInputEmail1">Buscar</label>
-  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  <input type="email" [formControl]="searchName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 </div>
-{{commentsData | json}}
 <table class="table table-striped">
     <thead>
       <tr>
