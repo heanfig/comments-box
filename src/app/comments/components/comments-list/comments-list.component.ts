@@ -1,4 +1,6 @@
+import { Comment } from '../../models/comment.model';
 import { Component, OnInit } from '@angular/core';
+import { CommentsService } from '../../services/comments.service';
 
 @Component({
   selector: 'app-comments-list',
@@ -7,22 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsListComponent implements OnInit {
 
-  public commentsData: any[];
+  public commentsData: Comment[];
 
-  constructor() { }
+  constructor(
+    private commentService: CommentsService
+  ) { }
 
   ngOnInit() {
-    this.commentsData = this.getComments();
-  }
-
-  private getComments() : any[]{
-    return [
-      {
-        name: 'Wilfredo Baez',
-        email: 'heanfig@gmail.com',
-        website: 'http://google.com'
+    this.commentService.getComments().subscribe(
+      (response: Comment[]) => {
+        this.commentsData = response;
       }
-    ];
+    );
   }
 
 }

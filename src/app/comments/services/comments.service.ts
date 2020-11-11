@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { LocalStorageService } from 'ngx-localstorage';
+import { Comment } from '../models/comment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +19,25 @@ export class CommentsService {
     });
   }
 
-  /*existComment(commentsModel: any){
-    const currentComments = this.getComments();
-    console.warn('currentComments',currentComments);
+  findCommentByKey(currentKey: string){
+    return new Observable( observer => {
+      this.getComments().subscribe((comments: Comment[]) => {
+        const searcherComment = comments.find(item => item.email === currentKey);
+        if(searcherComment){
+          observer.next(searcherComment)
+        } else {
+          observer.error([])
+        }
+      })
+    });
   }
 
-  addComment(commentData: any){
-    const currentComments = this.getComments();
-    // this._storageService.set('comments')
-  }*/
+  addComment(commentData: Comment){
+    const currentComments = localStorage.getItem('comments');
+    if(currentComments){
+      const currentCommentCollection = JSON.parse(currentComments) as Comment[];
+      currentCommentCollection.push(commentData)
+    }
+  }
 
 }
