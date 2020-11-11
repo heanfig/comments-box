@@ -9,7 +9,7 @@ export class CommentExistValidator {
         return new Observable<ValidationErrors>( observer => {
             const currentEmail = control.value;
             return commentService.findCommentByKey(currentEmail).subscribe(
-                item => observer.next({invalidAsync: false}),
+                item => observer.next({invalidAsync: true}),
                 error => observer.next({invalidAsync: true})
             )
         });

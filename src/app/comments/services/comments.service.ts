@@ -14,8 +14,9 @@ export class CommentsService {
       const currentComments = localStorage.getItem('comments');
       if(currentComments){
         observer.next(JSON.parse(currentComments));
+      }else{
+        return observer.next([]);
       }
-      return observer.next([]);
     });
   }
 
@@ -34,10 +35,12 @@ export class CommentsService {
 
   addComment(commentData: Comment){
     const currentComments = localStorage.getItem('comments');
+    let currentCommentCollection = [];
     if(currentComments){
-      const currentCommentCollection = JSON.parse(currentComments) as Comment[];
+      currentCommentCollection = JSON.parse(currentComments) as Comment[];
       currentCommentCollection.push(commentData)
     }
+    localStorage.setItem('comments',JSON.stringify(currentCommentCollection));
   }
 
 }

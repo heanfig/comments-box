@@ -21,18 +21,18 @@ export class CommentsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.commentForm = new FormGroup({
-      name: new FormControl('',[]),
-      email: new FormControl('',[ Validators.email ], CommentExistValidator.createValidator(this.commentService)),
-      website: new FormControl('',[]),
-      comment: new FormControl(''),
+      name: new FormControl('',[Validators.required]),
+      email: new FormControl('',[ Validators.required, Validators.email ], CommentExistValidator.createValidator(this.commentService)),
+      website: new FormControl('', Validators.pattern(/^http\:\/\/\w+\.\w+$/)),
+      comment: new FormControl('', [Validators.required]),
     });
     //const commentNode = this.route.snapshot.params['comment'];
   }
 
   submitCommentForm(): void {
-    console.warn(this.commentForm.value)
     const currentFormItem = new Comment(this.commentForm.value);
     this.commentService.addComment(currentFormItem);
+    this.commentForm.reset();
   }
 
 }
